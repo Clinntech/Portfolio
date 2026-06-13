@@ -1,10 +1,10 @@
 /* 
-    Clinton Mutinda - Professional Portfolio Styles
-    Theme: International Tech / Minimalist Dark
+    Clinton Kyutha Mutinda - Professional Portfolio CSS
+    International Standard Tech Aesthetic
 */
 
 :root {
-    /* Color Palette - Neutral Charcoal & Vibrant Accents */
+    /* Color Palette - Deep Charcoal & Vibrant Accents */
     --bg-dark: #050505;
     --bg-accent: #0a0a0a;
     --card-bg: #111111;
@@ -15,12 +15,12 @@
     --border: rgba(255, 255, 255, 0.06);
     --glass: rgba(255, 255, 255, 0.02);
     
-    /* System variables */
+    /* Layout */
     --nav-height: 80px;
     --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Base Styles */
+/* 1. Base Styles */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html { 
@@ -37,9 +37,9 @@ body {
 }
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-.section-spacing { padding: 140px 0; }
+.section-spacing { padding: 120px 0; }
 
-/* Navigation - Glassmorphism */
+/* 2. Navigation */
 .navbar { 
     position: fixed; width: 100%; top: 0; 
     background: rgba(5, 5, 5, 0.8); 
@@ -56,7 +56,7 @@ body {
 }
 
 .logo { 
-    font-weight: 800; font-size: 1.2rem; letter-spacing: -0.5px; 
+    font-weight: 800; font-size: 1.1rem; letter-spacing: -0.5px; 
     text-transform: uppercase; color: #fff;
 }
 .logo-light { font-weight: 300; color: var(--text-dim); }
@@ -65,19 +65,20 @@ body {
 .nav-links { display: flex; list-style: none; gap: 40px; align-items: center; }
 .nav-links a { 
     text-decoration: none; color: var(--text-dim); 
-    font-size: 0.85rem; font-weight: 500; transition: var(--transition); 
+    font-size: 0.8rem; font-weight: 600; text-transform: uppercase; 
+    letter-spacing: 0.5px; transition: var(--transition); 
 }
 .nav-links a:hover { color: var(--vibrant-cyan); }
 
 .btn-nav { 
     background: #fff; color: #000 !important; 
-    padding: 10px 24px; border-radius: 4px; font-weight: 700 !important;
+    padding: 10px 22px; border-radius: 4px; font-weight: 700 !important;
 }
 
-/* Hero Section */
+/* 3. Hero Section */
 .hero { 
     padding: calc(var(--nav-height) + 120px) 0 100px; 
-    background: radial-gradient(circle at 50% -20%, rgba(34, 211, 238, 0.08), transparent 50%);
+    background: radial-gradient(circle at 20% -10%, rgba(34, 211, 238, 0.1), transparent 40%);
 }
 
 .hero-badge { 
@@ -88,7 +89,7 @@ body {
 }
 
 h1 { 
-    font-size: clamp(2.8rem, 7vw, 4.8rem); font-weight: 800; line-height: 1; 
+    font-size: clamp(2.8rem, 7vw, 4.5rem); font-weight: 800; line-height: 1.05; 
     letter-spacing: -0.04em; margin-bottom: 28px; 
 }
 
@@ -98,16 +99,21 @@ h1 {
 }
 
 .hero-desc { 
-    font-size: 1.25rem; color: var(--text-dim); max-width: 750px; 
+    font-size: 1.2rem; color: var(--text-dim); max-width: 800px; 
     margin-bottom: 48px; font-weight: 400; 
 }
 
 .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
 
-/* Services Section (Bento Grid Style) */
+/* 4. Services Section */
 .section-header { margin-bottom: 60px; }
 .section-title { 
-    font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px;
+    font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px;
+    position: relative; padding-bottom: 15px;
+}
+.section-title::after {
+    content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 4px;
+    background: var(--vibrant-cyan);
 }
 .section-subtitle { color: var(--text-dim); font-size: 1.1rem; max-width: 600px; }
 
@@ -124,53 +130,73 @@ h1 {
     background: #161616; transform: translateY(-8px); border-color: rgba(255,255,255,0.15); 
 }
 
-.icon-vibrant { font-size: 2.5rem; color: var(--vibrant-cyan); margin-bottom: 24px; display: block; }
-
-.service-card h3 { font-size: 1.4rem; margin-bottom: 16px; color: #fff; }
+.icon-vibrant { font-size: 2.4rem; color: var(--vibrant-cyan); margin-bottom: 24px; display: block; }
+.service-card h3 { font-size: 1.3rem; margin-bottom: 16px; color: #fff; }
 .service-card p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.6; }
 
-/* Expertise Bars */
-.edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-.skill-item { margin-bottom: 24px; }
-.skill-info { display: flex; justify-content: space-between; margin-bottom: 12px; font-weight: 600; font-size: 0.85rem; color: #cbd5e1; }
-.skill-bar { background: rgba(255,255,255,0.04); height: 6px; border-radius: 10px; overflow: hidden; }
-.bar-fill { background: var(--vibrant-cyan); height: 100%; width: 0; transition: width 1.5s cubic-bezier(0.17, 0.67, 0.83, 0.67); }
-.bar-fill.visible { /* Animated via JS */ }
+/* 5. Expertise & Academic Card */
+.edu-summary-card {
+    background: linear-gradient(145deg, #111, #080808);
+    padding: 40px; border-radius: 16px; border: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 60px; border-left: 5px solid var(--vibrant-cyan);
+}
 
-/* Timeline */
-.timeline { border-left: 1px solid var(--border); padding-left: 40px; position: relative; }
-.timeline-item { position: relative; margin-bottom: 70px; }
+.edu-info h3 { font-size: 1.5rem; margin-bottom: 5px; color: #fff; }
+.edu-info .org { color: var(--vibrant-cyan); font-weight: 700; margin-bottom: 12px; font-size: 0.9rem; }
+.edu-info p { max-width: 700px; color: var(--text-dim); font-size: 1rem; }
+
+.edu-badge {
+    padding: 10px 20px; background: rgba(34, 211, 238, 0.1); 
+    color: var(--vibrant-cyan); border-radius: 50px; font-weight: 800; font-size: 0.75rem; text-transform: uppercase;
+}
+
+.edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 60px; }
+.skill-item { margin-bottom: 10px; }
+.skill-info { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+.skill-info span:first-child { font-weight: 700; font-size: 0.9rem; color: #fff; }
+.skill-detail { font-size: 0.7rem; color: var(--vibrant-cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.skill-bar { background: rgba(255,255,255,0.04); height: 4px; border-radius: 10px; overflow: hidden; }
+.bar-fill { background: linear-gradient(90deg, var(--vibrant-cyan), var(--vibrant-blue)); height: 100%; width: 0; transition: width 1.5s ease-out; }
+
+/* 6. Timeline */
+.timeline { border-left: 1px solid var(--border); padding-left: 40px; position: relative; margin-left: 10px; }
+.timeline-item { position: relative; margin-bottom: 60px; }
 .timeline-item::before { 
     content: ''; position: absolute; left: -50px; top: 6px; 
     width: 18px; height: 18px; background: var(--bg-dark); 
     border: 2px solid var(--vibrant-cyan); border-radius: 50%; 
 }
-.date { color: var(--vibrant-cyan); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 10px; display: block; }
-.text-highlight { color: #fff; font-weight: 700; }
+.date { color: var(--vibrant-cyan); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 8px; display: block; }
+.timeline-item h4 { font-size: 1.2rem; margin-bottom: 10px; color: #fff; }
+.text-highlight { color: var(--vibrant-blue); font-weight: 700; }
+.timeline-item p { color: var(--text-dim); font-size: 0.95rem; max-width: 800px; }
+.link { color: var(--vibrant-cyan); text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; }
+.link:hover { border-color: var(--vibrant-cyan); }
 
-/* Project Cards */
+/* 7. Projects */
 .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .project-card { 
     background: var(--card-bg); padding: 40px; border-radius: 12px; border: 1px solid var(--border); 
     display: flex; flex-direction: column; justify-content: space-between; transition: var(--transition);
 }
-.project-card:hover { border-color: var(--vibrant-cyan); }
+.project-card:hover { border-color: var(--vibrant-cyan); transform: translateY(-5px); }
 .status-tag { 
     display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 0.6rem; 
-    font-weight: 800; text-transform: uppercase; margin-bottom: 24px; letter-spacing: 0.5px;
+    font-weight: 800; text-transform: uppercase; margin-bottom: 24px;
 }
 .done { background: rgba(34, 211, 238, 0.1); color: var(--vibrant-cyan); }
 .in-progress { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
 
-.project-card h3 { font-size: 1.5rem; margin-bottom: 12px; color: #fff; }
+.project-card h3 { font-size: 1.4rem; margin-bottom: 12px; color: #fff; }
 .project-card p { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 30px; }
 
-/* Contact Section */
+/* 8. Contact & Footer */
 .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .label { font-size: 0.65rem; text-transform: uppercase; color: var(--vibrant-cyan); font-weight: 800; margin-bottom: 10px; display: block; }
-.value { font-size: 0.95rem; color: #fff; text-decoration: none; font-weight: 600; display: block; word-break: break-word; }
+.value { font-size: 0.95rem; color: #fff; text-decoration: none; font-weight: 600; display: block; }
 
-/* Buttons & Interactions */
 .btn-primary { 
     background: #fff; color: #000; padding: 16px 32px; 
     text-decoration: none; border-radius: 4px; font-weight: 700; transition: var(--transition);
@@ -181,100 +207,50 @@ h1 {
     border: 1px solid var(--border); color: #fff; padding: 16px 32px; 
     text-decoration: none; border-radius: 4px; font-weight: 700; transition: var(--transition);
 }
-.btn-secondary:hover { background: var(--glass); border-color: var(--text-dim); }
 
 .btn-card { 
     text-decoration: none; color: #fff; font-weight: 700; font-size: 0.85rem; 
-    border-bottom: 1px solid var(--border); padding-bottom: 4px; align-self: flex-start;
+    border-bottom: 1px solid var(--border); padding-bottom: 4px; transition: 0.3s;
 }
-.btn-card:hover { border-color: var(--vibrant-cyan); color: var(--vibrant-cyan); }
+.btn-card:hover { color: var(--vibrant-cyan); border-color: var(--vibrant-cyan); }
 
 .btn-card-vibrant { 
     text-decoration: none; background: linear-gradient(90deg, var(--vibrant-cyan), var(--vibrant-blue));
     color: #fff; font-weight: 700; font-size: 0.85rem; padding: 12px 24px; border-radius: 4px; text-align: center;
 }
 
-/* Scroll To Top */
 #scrollToTop {
     position: fixed; bottom: 40px; right: 40px;
     width: 54px; height: 54px; background: #fff; color: #000;
     border: none; border-radius: 50%; cursor: pointer; display: none;
     z-index: 2000; font-size: 1.2rem; transition: var(--transition);
 }
-#scrollToTop:hover { transform: scale(1.1); }
 
-/* Footer */
 .footer { border-top: 1px solid var(--border); padding: 80px 0; text-align: center; color: var(--text-dim); font-size: 0.8rem; }
 
-/* Mobile Menu Button */
-.menu-btn { 
-    display: none; background: none; border: none; cursor: pointer; z-index: 1100; flex-direction: column; gap: 6px; 
-}
-.menu-btn span { width: 28px; height: 2px; background: #fff; transition: var(--transition); }
-
-/* Responsive Media Queries */
+/* 9. Mobile Responsiveness */
 @media (max-width: 1024px) {
-    .services-grid, .projects-grid { grid-template-columns: 1fr 1fr; }
+    .services-grid, .projects-grid, .edu-grid { grid-template-columns: 1fr 1fr; }
     .contact-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
 
 @media (max-width: 768px) {
     .container { padding: 0 24px; }
-    .menu-btn { display: flex; }
+    .menu-btn { 
+        display: flex; flex-direction: column; gap: 6px; 
+        background: none; border: none; cursor: pointer; z-index: 1100;
+    }
+    .menu-btn span { width: 28px; height: 2px; background: #fff; transition: 0.3s; }
+    
     .nav-links { 
         position: fixed; top: 0; right: -100%; width: 80%; height: 100vh;
         background: var(--bg-dark); flex-direction: column; justify-content: center;
         transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
     }
-    .nav-links.active { right: 0; box-shadow: -20px 0 40px rgba(0,0,0,0.5); }
+    .nav-links.active { right: 0; }
     
+    .edu-summary-card { flex-direction: column; align-items: flex-start; gap: 20px; }
     .services-grid, .projects-grid, .edu-grid, .contact-grid { grid-template-columns: 1fr; }
-    h1 { font-size: 3.2rem; }
-    .section-spacing { padding: 100px 0; }
-}
-
-/* Tools Strip */
-.tools-strip {
-    background: var(--bg-accent);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 24px 0;
-}
-.tools-grid {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-.tools-grid span {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--text-dim);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.tools-grid i { color: var(--vibrant-cyan); }
-
-/* Certification Cards */
-.cert-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-}
-.cert-card {
-    background: var(--card-bg);
-    padding: 32px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    transition: var(--transition);
-}
-.cert-card:hover { border-color: var(--vibrant-cyan); transform: translateY(-5px); }
-.cert-date { font-size: 0.7rem; color: var(--vibrant-cyan); font-weight: 700; margin-bottom: 12px; display: block; }
-.cert-card h3 { font-size: 1.1rem; margin-bottom: 4px; color: #fff; }
-.org { font-size: 0.85rem; color: var(--vibrant-blue); font-weight: 600; margin-bottom: 16px; }
-.cert-desc { font-size: 0.9rem; color: var(--text-dim); line-height: 1.6; }
-
-.featured-cert {
-    border-left: 4px solid var(--vibrant-cyan);
+    h1 { font-size: 2.8rem; }
+    .section-spacing { padding: 80px 0; }
 }
